@@ -837,3 +837,7 @@ header .container {
 .animate-on-load {
     animation: fadeInFromBottom 0.8s ease-out forwards;
 }
+
+.hidden {
+    display: none;
+}
