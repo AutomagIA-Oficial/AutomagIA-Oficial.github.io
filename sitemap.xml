@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://automagia-oficial.github.io/index.html</loc>
+    <loc>https://automagia.netlify.app/index.html</loc>
   </url>
   <url>
-    <loc>https://automagia-oficial.github.io/servicios.html</loc>
+    <loc>https://automagia.netlify.app/servicios.html</loc>
   </url>
   <url>
-    <loc>https://automagia-oficial.github.io/contacto.html</loc>
+    <loc>https://automagia.netlify.app/contacto.html</loc>
   </url>
 </urlset>
