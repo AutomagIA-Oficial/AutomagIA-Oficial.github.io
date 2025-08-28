@@ -1,0 +1,843 @@
+/* --- ESTILOS GLOBALES Y RESETEO --- */
+/* El * selecciona TODO para aplicar unas reglas base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0A0A1A; /* Nuestro fondo azul oscuro casi negro */
+    color: #EAEAEA; /* Nuestro texto principal gris claro */
+    font-family: 'Roboto', sans-serif; /* Fuente base para párrafos */
+    padding-top: 85px;
+}
+
+/* El contenedor mágico que centra nuestro contenido */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Esto lo centra horizontalmente */
+}
+
+/* --- ESTILOS DEL HEADER (CABECERA) --- */
+header {
+    padding: 15px 0;
+    position: fixed; /* ¡CAMBIO CLAVE! Fija el header en la parte superior */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    transition: all 0.4s ease; /* <-- AÑADE/MODIFICA ESTA LÍNEA */
+}
+
+header.scrolled{
+    padding: 10px 0;
+    background-color: rgba(10, 10, 26, 0.85); /* Un poco más traslúcido */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Usamos Flexbox para alinear el logo y el menú */
+header .container {
+    display: flex;
+    justify-content: space-between; /* Pone un elemento a cada extremo */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Damos un tamaño correcto al logo */
+header .logo img {
+    height: 60px; /* ¡Aquí controlamos el tamaño del logo! */
+}
+
+/* Quitamos los puntos de la lista del menú */
+header nav ul {
+    list-style: none;
+}
+
+/* Ponemos los elementos del menú uno al lado del otro */
+header nav ul li {
+    display: inline-block;
+    margin-left: 25px; /* Espacio entre los elementos del menú */
+}
+
+/* Estilo para los enlaces del menú */
+header nav a {
+    color: #EAEAEA;
+    text-decoration: none; /* Quitamos el subrayado */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+/* Efecto al pasar el ratón sobre los enlaces del menú */
+header nav a:hover {
+    color: #FFD700; /* Color amarillo/dorado de acento */
+}
+
+/* Estilo para el enlace de la página actual */
+header nav a.active {
+    color: #FFD700; /* Lo resaltamos con nuestro color dorado */
+}
+
+/* --- ESTILOS DE LA SECCIÓN HERO (VERSIÓN 2.0) --- */
+
+.hero {
+    background-image: linear-gradient(90deg, rgba(10, 10, 26, 0.9) 0%, rgba(10, 10, 26, 0.5) 50%, rgba(10, 10, 26, 0.1) 100%), url('../images/cyborgs/cyborg-hero.jpg');
+    background-size: cover;
+    background-position: center 30%; /* ¡AJUSTE CLAVE! Lo bajamos un poco desde el centro */
+    height: 90vh;
+    
+    /* ¡GRAN CAMBIO! Alineamos todo a la izquierda */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Alinea los items al inicio (izquierda) */
+}
+
+/* Movemos el contenido del Héroe para que esté dentro del contenedor centrado */
+.hero .container {
+    text-align: left; /* Alineamos el texto a la izquierda */
+}
+
+.hero h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 4rem;
+    max-width: 750px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil para dar profundidad */
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 500px; /* ¡AJUSTE CLAVE! Un poco más estrecho para forzar 2 líneas */
+    margin-bottom: 30px;
+    line-height: 1.6; /* Aumentamos el espacio entre líneas para mejor lectura */
+}
+
+.hero-subtitle {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem; /* Más pequeño que el H1, pero aún grande */
+    max-width: 600px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el botón principal (CTA) */
+.hero .cta-button {
+    background: linear-gradient(90deg, #007CF0, #9245FF);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    
+    display: inline-flex; /* ¡CAMBIO CLAVE! Esto soluciona el tamaño */
+    align-items: center;
+    gap: 10px;
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(146, 69, 255, 0.5);
+}
+
+.hero .cta-button img {
+    height: 28px;
+}
+
+.hero .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(146, 69, 255, 1);
+}
+/* --- ESTILOS DE RESALTADO (HIGHLIGHTS) --- */
+
+.highlight-gold {
+    color: #FFD700; /* Nuestro amarillo/dorado de acento */
+}
+
+.highlight-gradient {
+    /* Este es un truco de CSS avanzado para texto con degradado */
+    background: linear-gradient(90deg, #007CF0, #9245FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+/* --- ESTILOS DE UTILIDAD --- */
+/* Clases que podemos reutilizar en cualquier parte */
+
+.text-highlight {
+    font-weight: 700; /* Esto es lo mismo que "bold" */
+    color: #FFD700; /* El color dorado de "Magia" */
+}
+
+.text-upper {
+    text-transform: uppercase; /* Pone el texto en mayúsculas */
+    letter-spacing: 0.5px; /* Un poquito de espacio extra entre letras, un toque pro */
+}
+
+/* --- SECCIÓN PROBLEMA/SOLUCIÓN --- */
+.problem-solution {
+    padding: 100px 0; /* Espacio vertical grande para que respire */
+    background-color: #050510; /* Un azul un poco más claro para diferenciarla */
+}
+
+/* Estilo compartido para los títulos de sección */
+.problem-solution h2,
+.services h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto; /* Centrado y con margen inferior */
+    line-height: 1.6;
+    color: #b0b0b0; /* Un gris un poco más apagado para diferenciarlo */
+}
+
+.columns {
+    display: flex; /* ¡La magia para poner las columnas una al lado de la otra! */
+    gap: 40px; /* Espacio entre las columnas */
+}
+
+.column {
+    background: rgba(255, 255, 255, 0.05); /* Fondo de cristal traslúcido */
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%; /* Cada columna ocupa la mitad del espacio */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease; /* <-- AÑADE ESTA LÍNEA */
+}
+
+.column:hover {
+    transform: scale(1.03); /* Agrandamos la columna un 3% */
+}
+
+.column h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #FFD700; /* Usamos el dorado para los subtítulos */
+}
+
+.column ul {
+    list-style: none; /* Quitamos los puntos de la lista */
+}
+
+.column li {
+    line-height: 1.8;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Espacio entre el emoji y el texto */
+}
+/* --- Estilos para los iconos de las listas --- */
+.column li img {
+    height: 28px;
+    width: 28px;
+}
+
+.icon-cross {
+    /* Mantenemos el brillo frío y sutil para las cruces */
+    filter: drop-shadow(0 0 5px rgba(100, 150, 255, 0.7));
+}
+
+.icon-checkmark {
+    /* ¡NUEVO HECHIZO! Un brillo cálido y vibrante para los ticks */
+    filter: drop-shadow(0 0 6px rgba(227, 70, 246, 0.8));
+}
+/* --- SECCIÓN DE SERVICIOS --- */
+.services {
+    padding: 100px 0;
+    /* ¡NUEVO FONDO! Invertimos el degradado para diferenciar la sección */
+    background: linear-gradient(180deg, #0A0A1A 0%, #050510 100%);
+}
+
+.services-grid {
+    display: grid; /* Usamos Grid para un diseño moderno y adaptable */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 50px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Al pasar el ratón, la tarjeta "flota" */
+    border-color: rgba(146, 69, 255, 0.5); /* El borde se ilumina con el color de la marca */
+}
+
+.service-icon {
+    height: 75px; /* Hacemos los iconos más grandes y protagonistas */
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* --- SECCIÓN CTA FINAL --- */
+.cta-section {
+    padding: 100px 0;
+    background-color: #0A0A1A; /* Volvemos al fondo más oscuro para dar contraste */
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas de igual tamaño */
+    align-items: center; /* Centramos el contenido verticalmente */
+    gap: 60px; /* Espacio generoso entre imagen y texto */
+}
+
+.cta-image img {
+    width: 100%;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out; /* <-- AÑADE ESTA LÍNEA */
+}
+
+.cta-content h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #b0b0b0;
+    max-width: 500px;
+}
+
+/* Estilo compartido para todos los botones CTA de la web */
+.cta-content .cta-button,
+form button.cta-button, /* <-- CAMBIO CLAVE AQUÍ */
+.cta-column .cta-button {
+    background: linear-gradient(90deg, #007CF0, #9245FF);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(146, 69, 255, 0.5);
+}
+
+.cta-content .cta-button:hover,
+form button.cta-button:hover, /* <-- CAMBIO CLAVE AQUÍ */
+.cta-column .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(146, 69, 255, 1);
+}
+
+.cta-content .cta-button img,
+.cta-column .cta-button img {
+    height: 28px;
+}
+/* --- FOOTER --- */
+footer {
+    background-color: #050510; /* El fondo más claro para que se diferencie */
+    padding: 50px 0 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    height: 50px; /* Un tamaño un poco más pequeño que en el header */
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer-nav a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: white;
+}
+
+.footer-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #888;
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FFD700; /* Se iluminan en dorado al pasar el ratón */
+    transform: scale(1.2); /* Y se agrandan un poco */
+}
+/* --- PÁGINA DE CONTACTO --- */
+
+.contact-hero {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-form-section {
+    padding: 0 0 100px 0; /* Sin padding arriba, pegado al hero */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Damos más espacio al formulario */
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Estilos del Formulario */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #b0b0b0;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(146, 69, 255, 0.7);
+    box-shadow: 0 0 10px rgba(146, 69, 255, 0.5);
+}
+
+/* Estilos para la columna de la derecha (Vía Rápida) */
+.cta-column {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-column h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.cta-column p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+/* --- PÁGINA DE SERVICIOS --- */
+
+.services-hero {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(180deg, #0A0A1A 0%, #050510 100%);
+}
+
+.services-hero h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+/* --- DETALLE DE CADA SERVICIO --- */
+
+.service-detail {
+    padding: 100px 0;
+}
+
+/* Fondo alterno para dar ritmo a la página */
+.service-detail:nth-child(even) {
+    background-color: #050510;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    text-align: left;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.service-image img:hover,
+.cta-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(146, 69, 255, 0.6), 0 0 35px rgba(0, 124, 240, 0.5);
+}
+
+.service-content-icon {
+    height: 45px; /* Un tamaño prominente pero no excesivo */
+    margin-bottom: 15px;
+}
+
+.service-content h3 {
+    font-size: 1.2rem; /* Más grande */
+    font-weight: bold;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block; /* Aseguramos que ocupe su línea */
+}
+
+.service-content h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.service-content p {
+    color: #b0b0b0;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.service-content ul {
+    list-style: none;
+}
+
+.service-content li {
+    display: flex; /* Usamos Flexbox para la alineación */
+    align-items: flex-start; /* Alinea los items arriba */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.service-content li .icon-checkmark {
+    height: 28px; /* Tamaño controlado y fijo */
+    width: 28px;
+    flex-shrink: 0; /* IMPRESCINDIBLE: Evita que el icono se encoja */
+    margin-top: 3px; /* Pequeño ajuste para centrarlo visualmente con la primera línea */
+}
+
+.list-item-content strong {
+    display: block; /* Hace que ocupe su propia línea */
+    color: white;
+    margin-bottom: 5px; /* Espacio entre el título y el texto */
+}
+
+.list-item-content span {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Para invertir el layout en las secciones pares */
+.layout-reversed .service-grid {
+    grid-template-areas: "content image"; /* Nombramos las áreas */
+}
+
+.layout-reversed .service-image {
+    grid-area: image;
+}
+
+.layout-reversed .service-content {
+    grid-area: content;
+}
+/* Estilo para los botones secundarios dentro de los servicios */
+.cta-button-secondary {
+    display: inline-block;
+    margin-top: 20px; /* Espacio para separarlo de la lista */
+    padding: 10px 25px;
+    border: 2px solid #FFD700; /* Borde con nuestro color dorado */
+    border-radius: 50px;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background-color: #FFD700;
+    color: #0A0A1A; /* El color de fondo oscuro */
+}
+
+/* ========================================= */
+/*      HECHIZOS RESPONSIVE (MEDIA QUERIES)  */
+/* ========================================= */
+
+/* --- Estilos para Tablets (hasta 992px) --- */
+@media (max-width: 992px) {
+
+    .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+header .container {
+    /* Apilamos el logo y el menú */
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* ESTA ES LA LÍNEA MÁGICA Y DEFINITIVA */
+}
+
+    /* --- Sección Hero en Tablet --- */
+    .hero h1 {
+        font-size: 3rem; /* Reducimos un poco el tamaño del titular */
+    }
+    .hero-subtitle {
+        font-size: 2.2rem;
+    }
+
+    /* --- Rejillas de 2 Columnas en Tablet --- */
+    .columns,
+    .cta-grid {
+        flex-direction: column; /* Apila las columnas una encima de la otra */
+    }
+
+    .column {
+        width: 100%; /* Hacemos que cada columna ocupe todo el ancho */
+    }
+
+    .service-grid {
+    grid-template-columns: 1fr; /* Mantenemos la columna única */
+    gap: 30px; /* Reducimos un poco el espacio para que se vea mejor apilado */
+    /* ¡LA MAGIA DEL REORDENAMIENTO! */
+    grid-template-areas: 
+        "content"
+        "image";
+}
+
+.service-image {
+    grid-area: image; /* Asignamos esta div al área 'image' */
+    justify-self: center; /* Centramos la imagen */
+    max-width: 500px; /* Le damos un tamaño máximo para que no se vea gigante */
+}
+
+.service-content {
+    grid-area: content; /* Asignamos esta div al área 'content' */
+}
+/* CORRECCIÓN: Forzamos el apilamiento para los layouts invertidos */
+.service-detail.layout-reversed .service-grid {
+    grid-template-areas: 
+        "content"
+        "image";
+}
+    
+    .cta-grid {
+        text-align: center; /* Centramos el texto del CTA final */
+    }
+
+    .cta-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centramos el botón */
+    }
+}
+
+/* --- Estilos para Móviles Grandes (hasta 768px) --- */
+@media (max-width: 768px) {
+
+    .cta-column {
+    padding: 30px; /* Hacemos la tarjeta de vía rápida un poco más pequeña */
+}
+
+    /* --- Tipografía en Móvil --- */
+    .hero h1 {
+        font-size: 2.5rem; /* Hacemos los titulares aún más compactos */
+        line-height: 1.3;
+    }
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+    .problem-solution h2, .services h2, .cta-content h2, .services-hero h1 {
+        font-size: 2.2rem; /* Reducimos todos los títulos de sección */
+    }
+    .service-content h2 {
+        font-size: 2rem;
+    }
+
+    /* --- Espaciados en Móvil --- */
+    .problem-solution, .services, .cta-section, .service-detail {
+        padding: 60px 0; /* Reducimos el espacio vertical entre secciones */
+    }
+
+    /* --- Footer en Móvil --- */
+    .footer-top, .footer-bottom {
+        flex-direction: column; /* Apilamos los elementos del footer */
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-nav li {
+        margin: 0 10px; /* Reducimos el espacio entre enlaces del menú del footer */
+    }
+}
+
+/* --- Estilos para Móviles Pequeños (hasta 480px) --- */
+@media (max-width: 480px) {
+
+    /* Arreglo para el CTA en la Página de Inicio */
+    /* --- Arreglo Final para el CTA en la Página de Inicio (Móvil) --- */
+        /* --- Arreglo Final y Definitivo para el CTA en Móvil --- */
+    .cta-grid {
+        grid-template-columns: 1fr; /* Mantenemos una sola columna */
+        text-align: center;
+        /* ¡LA MAGIA DEL REORDENAMIENTO! */
+        grid-template-areas: 
+            "content"
+            "image";
+    }
+
+    .cta-image {
+        grid-area: image; /* Le decimos que esta es el área 'image' */
+        justify-self: center; /* ¡CENTRADO PERFECTO! */
+        max-width: 280px;
+        margin-top: 40px; /* Le damos espacio arriba para separarlo del texto */
+        margin-bottom: 0; /* Ya no necesita margen abajo */
+    }
+
+    .cta-content {
+        grid-area: content; /* Le decimos que esta es el área 'content' */
+        align-items: center;
+    }
+
+    /* Hacemos el menú principal un poco más compacto */
+    header nav ul {
+        padding: 0;
+    }
+   header nav li {
+    margin: 10px 0;
+}
+    .hero {
+        height: auto; /* Dejamos que el contenido defina la altura */
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    /* Hacemos que los botones ocupen más espacio para ser fáciles de pulsar */
+    .cta-button {
+        width: 100%;
+        justify-content: center; /* Centramos el texto y flecha dentro */
+        padding: 18px 20px; /* Hacemos el botón más alto */
+    }
+
+/* --- RETOQUES FINALES PARA MÓVILES PEQUEÑOS EN INDEX.HTML --- */
+
+/* 1. Hace que las tarjetas de servicio ocupen una sola columna */
+.services-grid {
+    grid-template-columns: 1fr;
+}
+
+/* 2. Hace la imagen del CTA final un poco más grande */
+.cta-image {
+    max-width: 320px; /* La subimos de 280px para darle más impacto */
+}
+
+}
+
+/* ========================================= */
+/*      ANIMACIONES SUTILES                */
+/* ========================================= */
+
+/* 1. Definimos la animación de aparición */
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0; /* Empieza invisible */
+        transform: translateY(20px); /* Y 20px más abajo de su posición final */
+    }
+    to {
+        opacity: 1; /* Termina totalmente visible */
+        transform: translateY(0); /* Y en su posición original */
+    }
+}
+
+/* 2. Creamos una clase para aplicar la animación */
+.animate-on-load {
+    animation: fadeInFromBottom 0.8s ease-out forwards;
+}
+
+.hidden {
+    display: none;
+}

@@ -45,8 +45,13 @@
                 <div class="contact-grid">
                     <!-- Columna del Formulario -->
                     <div class="form-column" data-aos="fade-right">
-                        <form name="contacto" method="POST" netlify>
+                        <form name="contacto" method="POST" netlify data-netlify="true">
     <input type="hidden" name="form-name" value="contacto" />
+    <p class="hidden">
+    <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+    </label>
+</p>
     <div class="form-group">
         <label for="name">Nombre</label>
         <input type="text" id="name" name="name" required>
