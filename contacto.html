@@ -45,11 +45,12 @@
                 <div class="contact-grid">
                     <!-- Columna del Formulario -->
                     <div class="form-column" data-aos="fade-right">
-                        <form action="https://formspree.io/f/meolobrq" method="POST">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
+                        <form name="contacto" method="POST" netlify>
+    <input type="hidden" name="form-name" value="contacto" />
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required>
+    </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" required>
