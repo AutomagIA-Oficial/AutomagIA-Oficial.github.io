@@ -841,3 +841,84 @@ header .container {
 .hidden {
     display: none;
 }
+
+/* --- ESTILOS PARA LA PÁGINA DE PRIVACIDAD --- */
+.privacy-policy-content {
+    padding: 80px 0 100px 0;
+}
+
+.policy-text-block {
+    max-width: 800px; /* Limitamos el ancho para que las líneas no sean muy largas */
+    margin: 0 auto;   /* Centramos el bloque de texto */
+}
+
+.policy-text-block h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 50px; /* Más espacio arriba de los títulos principales */
+    margin-bottom: 20px;
+    text-align: left; /* Alineamos a la izquierda, es más legible */
+}
+
+.policy-text-block h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.8rem;
+    color: #FFD700; /* Usamos tu color de acento para los subtítulos */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.policy-text-block h4 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.4rem;
+    color: #EAEAEA;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.policy-text-block p, 
+.policy-text-block li {
+    line-height: 1.8; /* Aumentamos el espacio entre líneas para facilitar la lectura */
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+.policy-text-block ul {
+    list-style: none; /* Quitamos los puntos por defecto */
+    padding-left: 0;
+}
+
+.policy-text-block ul li p:before {
+    content: "•"; /* Usamos un punto como viñeta */
+    color: #FFD700; /* En color dorado */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.policy-text-block a {
+    color: #FFD700; /* Los enlaces en dorado para que destaquen */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.policy-text-block a:hover {
+    color: white;
+}
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+.form-group-checkbox input {
+    width: auto; /* Para que el checkbox no se estire */
+}
+.form-group-checkbox a {
+    color: #007CF0; /* Color azul para el enlace */
+    text-decoration: underline;
+}
