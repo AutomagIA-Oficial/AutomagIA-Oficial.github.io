@@ -922,3 +922,209 @@ header .container {
     color: #007CF0; /* Color azul para el enlace */
     text-decoration: underline;
 }
+
+/* --- SECCIÓN CÓMO TRABAJAMOS (VERSIÓN FINAL CON CONTRASTE) --- */
+.how-we-work {
+    padding: 100px 0;
+    /* SOLUCIÓN: Intercambiamos los colores del degradado para crear contraste con la sección anterior */
+    background: linear-gradient(180deg, #0A0A1A 0%, #050510 100%);
+}
+
+.how-we-work h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.process-step {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    border-color: rgba(146, 69, 255, 0.5);
+}
+
+.process-icon-container {
+    height: 100px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-icon {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(146, 69, 255, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover .process-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(0, 124, 240, 0.7));
+}
+
+.process-step h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.process-step h3 span {
+    display: block;
+    color: #FFD700;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.process-step p {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* --- Adaptación responsive para la sección "Cómo Trabajamos" --- */
+@media (max-width: 992px) {
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) (VERSIÓN MEJORADA) --- */
+.faq-section {
+    padding: 100px 0;
+    /* SOLUCIÓN 2: Mismo fondo degradado que la sección anterior */
+    background: linear-gradient(180deg, #0A0A1A 0%, #050510 100%);
+}
+
+.faq-grid {
+    display: grid;
+    /* SOLUCIÓN 3: Invertimos el layout. 3fr para el contenido (izquierda), 2fr para la imagen (derecha) */
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: "content image"; /* Nombramos las áreas para el control total */
+    gap: 60px;
+    align-items: center;
+}
+
+.faq-image {
+    grid-area: image; /* Asignamos esta div al área 'image' */
+}
+
+.faq-content {
+    grid-area: content; /* Asignamos esta div al área 'content' */
+}
+
+.faq-image img {
+    width: 100%;
+    border-radius: 15px;
+    /* SOLUCIÓN 1: Añadimos la transición para el efecto hover */
+    transition: all 0.3s ease-in-out;
+}
+
+/* SOLUCIÓN 1: Añadimos el efecto hover, idéntico al del CTA para coherencia */
+.faq-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(146, 69, 255, 0.6), 0 0 35px rgba(0, 124, 240, 0.5);
+}
+
+.faq-content h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.accordion {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 25px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #FFD700;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    font-weight: 300;
+    color: #FFD700;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.faq-answer.active {
+    max-height: 300px;
+    padding-bottom: 25px;
+}
+
+.faq-answer p {
+    color: #b0b0b0;
+    line-height: 1.7;
+}
+
+/* --- Responsive para la sección FAQ --- */
+@media (max-width: 992px) {
+    .faq-grid {
+        grid-template-columns: 1fr; /* Apilamos las columnas */
+        /* Definimos el orden en móvil: primero la imagen, luego el contenido */
+        grid-template-areas:
+            "image"
+            "content";
+        gap: 40px;
+    }
+    .faq-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .faq-content h2, .faq-content .section-subtitle {
+        text-align: center;
+    }
+}

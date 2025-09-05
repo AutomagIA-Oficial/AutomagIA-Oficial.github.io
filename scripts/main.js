@@ -72,3 +72,20 @@ navLinks.forEach(link => {
         link.classList.add('active');
     }
 });
+// --- LÓGICA PARA EL ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ) ---
+
+// 1. Seleccionamos todos los botones de las preguntas.
+const questions = document.querySelectorAll('.faq-question');
+
+// 2. Recorremos cada botón para añadirle la funcionalidad.
+questions.forEach(question => {
+    question.addEventListener('click', () => {
+        // Buscamos el div de la respuesta, que es el elemento siguiente al botón.
+        const answer = question.nextElementSibling;
+
+        // Añadimos o quitamos la clase 'active' al botón y a la respuesta.
+        // Esto activará las transiciones que definimos en el CSS.
+        question.classList.toggle('active');
+        answer.classList.toggle('active');
+    });
+});
